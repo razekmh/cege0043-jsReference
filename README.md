@@ -1,2 +1,2 @@
 # cege0043-jsReference
-Repository for practical 5 
+JS Reference module_ created for practical 5 and beyond
