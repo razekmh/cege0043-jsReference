@@ -9,12 +9,12 @@ function getPort(){
 		item(0).textContent;
 		httpsPortNumber= doc.getElementsByTagName("node-port-https").
 		item(0).textContent;
-		alert("Port : " + httpPortNumber);
+	//	alert("Port : " + httpPortNumber);
 		});
 	// depending on whether we are in a browser or on a phone
 	// the location of the config file is different
 	// if we are on a phone then http and https won't be present
 	var configLocation = "res/port.xml";
-	xhr.open("get", configLocation, true);
+	xhr.open("get", configLocation, false);
 	xhr.send();
 }

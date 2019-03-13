@@ -12,7 +12,9 @@ function trackAndCircle () {
 function startup() {
 	document.addEventListener('DOMContentLoaded', function() {
 		trackAndCircle ();
+		getFormData ();
 		}, false);
 	}
 
-getPort()
+getPort();
+startup();

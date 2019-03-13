@@ -26,7 +26,27 @@
     
     
     var client;
+    var client2;
     var earthquakes;
+    var formdata;
+            //get the form data
+        function getFormData() {
+            client2 = new XMLHttpRequest();
+            var url = 'http://developer.cege.ucl.ac.uk:'+ httpPortNumber + ("/getFormData/" + httpPortNumber);
+            client2.open('GET',url, true);
+            client2.onreadystatechange = formdataresponse; // note don't use earthquakeResponse() with brackets as that doesn't work
+            client2.send()};
+
+            //adding the response of the formdata to the variable 
+        function formdataresponse() {
+            // this function listens out for the server to say that the data is ready - i.e. has state 4
+            if (client2.readyState == 4) {
+            // once the data is ready, process the data
+            console.log(client2.responseText)
+            formdata = client2.responseText;
+            loadGeoJSONLayer(formdata);
+            }
+            }
 
             // create the code to get the Earthquakes data using an XMLHttpRequest
         function getEarthquakes() {
@@ -53,5 +73,5 @@
             // add the JSON layer onto the map - it will appear using the default icons
             earthquakelayer = L.geoJson(earthquakejson).addTo(mymap);
             // change the map zoom so that all the data is shown
-            mymap.fitBounds(earthquakelayer.getBounds());
-            }        
+            mymap.fitBounds(earthquakelayer.getBounds())
+            };
